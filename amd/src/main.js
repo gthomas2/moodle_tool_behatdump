@@ -1,23 +1,28 @@
-require.config({
-    enforceDefine: false,
-    paths: {
-        // Vendor code.
-        "vue_2_5_16": [
-            "https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue",
-            // CDN Fallback - whoop whoop!
-            M.cfg.wwwroot + "/pluginfile.php/" + M.cfg.contextid + "/tool_behatdump/vendorjs/vue"
-        ],
-        "vuerouter_2_5_3": "https://cdn.jsdelivr.net/npm/vue-router@2.5.3/dist/vue-router", // TODO CDN FALLBACK
+(function() {
+    var pluginJSURL = function(path) {
+        return M.cfg.wwwroot + "/pluginfile.php/" + M.cfg.contextid + "/tool_behatdump/" + path;
+    };
+    require.config({
+        enforceDefine: false,
+        paths: {
+            // Vendor code.
+            "vue_2_5_16": [
+                "https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min",
+                // CDN Fallback - whoop whoop!
+                pluginJSURL('vendorjs/vue')
+            ],
+            "vuerouter_2_5_3": "https://cdn.jsdelivr.net/npm/vue-router@2.5.3/dist/vue-router", // TODO CDN FALLBACK
 
-        // Non vendor code.
-        // Note, vuedatable is not via a CDN because it has been customised.
-        "vuedatatable": M.cfg.wwwroot + "/pluginfile.php/" + M.cfg.contextid + "/tool_behatdump/vendorjs/vuedatatable",
-        // Vue components
-        "vuecomp": [
-            M.cfg.wwwroot + "/pluginfile.php/" + M.cfg.contextid + "/tool_behatdump/vue/comps"
-        ],
-    }
-});
+            // Non vendor code.
+            // Note, vuedatable is not via a CDN because it has been customised.
+            "vuedatatable":pluginJSURL('vendorjs/vuedatatable'),
+            // Vue components
+            "vuecomp": [
+                pluginJSURL('/vue/comps')
+            ],
+        }
+    });
+})();
 
 
 define(['jquery', 'vue_2_5_16', 'vuerouter_2_5_3', 'vuedatatable'], function($, Vue, VueRouter, VueDataTable) {
