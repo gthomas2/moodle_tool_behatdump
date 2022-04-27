@@ -2,7 +2,7 @@
   "description": "Grunt tasks for sass.",
   "private": true,
   "devDependencies": {
-    "grunt": "~1.0.0",
+    "grunt": "~1.5.2",
     "grunt-autoprefixer": "^3.0.3",
     "grunt-contrib-csslint": "^0.5.0",
     "grunt-contrib-jshint": "^0.12.0",
