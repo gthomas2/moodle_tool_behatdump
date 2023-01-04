@@ -13,7 +13,7 @@
     "grunt-sass": "^1.2.1"
   },
   "dependencies": {
-    "@vue/cli-service": "^3.0.0-rc.10",
+    "@vue/cli-service": "^5.0.8",
     "node": "^8.11.3",
     "node-sass": "^4.9.2",
     "sass": "^1.10.3",
